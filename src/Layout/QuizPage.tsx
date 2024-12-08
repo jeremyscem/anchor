@@ -5,6 +5,8 @@ import { useRouter } from "next/navigation";
 import { useContext, useEffect } from "react";
 
 const QuizPage = ({ children }: { children: React.ReactNode }) => {
+  const router = useRouter();
+
   const {
     currentQuestion,
     selectedAnswer,
@@ -14,7 +16,6 @@ const QuizPage = ({ children }: { children: React.ReactNode }) => {
     prevAnswerIsCorrect,
   } = useContext(QuizContext);
 
-  const router = useRouter();
   const handleNextQuestion = () => {
     if (parseInt(selectedAnswer) === currentQuestion.answer) {
       setPrevAnswerIsCorrect(true);
